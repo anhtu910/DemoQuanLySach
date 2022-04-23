@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DemoMVCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="PhanLoaiSach">
+    <Key>
+      <PropertyRef Name="Ma" />
+    </Key>
+    <Property Name="Ma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenPhanLoai" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DaXoa" Type="Boolean" Nullable="false" />
+    <Property Name="NgayTao" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NguoiTao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgaySua" Type="DateTime" Precision="3" />
+    <Property Name="NguoiSua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayXoa" Type="DateTime" Precision="3" />
+    <Property Name="NguoiXoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Saches" Relationship="Self.FK__Sach__MaPhanLoai__1273C1CD" FromRole="PhanLoaiSach" ToRole="Sach" />
+    <NavigationProperty Name="Chart1" Relationship="DemoMVCModel.FK__Chart1__Ma__04E4BC85" FromRole="PhanLoaiSach" ToRole="Chart1" />
+    <NavigationProperty Name="Chart11" Relationship="DemoMVCModel.FK__Chart1__Ma__17036CC0" FromRole="PhanLoaiSach" ToRole="Chart1" />
+    <NavigationProperty Name="Chart12" Relationship="DemoMVCModel.FK__Chart1__Ma__7D439ABD" FromRole="PhanLoaiSach" ToRole="Chart1" />
+  </EntityType>
+  <EntityType Name="Sach">
+    <Key>
+      <PropertyRef Name="Ma" />
+    </Key>
+    <Property Name="Ma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaPhanLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HinhBia" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TomTat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Link" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayXuatBan" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NhaXuatBan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenTacGia" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DaXoa" Type="Boolean" Nullable="false" />
+    <Property Name="NgayTao" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NguoiTao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgaySua" Type="DateTime" Precision="3" />
+    <Property Name="NguoiSua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayXoa" Type="DateTime" Precision="3" />
+    <Property Name="NguoiXoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhanLoaiSach" Relationship="Self.FK__Sach__MaPhanLoai__1273C1CD" FromRole="Sach" ToRole="PhanLoaiSach" />
+  </EntityType>
+  <Association Name="FK__Sach__MaPhanLoai__1273C1CD">
+    <End Role="PhanLoaiSach" Type="Self.PhanLoaiSach" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoaiSach">
+        <PropertyRef Name="Ma" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="MaPhanLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DemoMVCEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PhanLoaiSaches" EntityType="Self.PhanLoaiSach" />
+    <EntitySet Name="Saches" EntityType="Self.Sach" />
+    <AssociationSet Name="FK__Sach__MaPhanLoai__1273C1CD" Association="Self.FK__Sach__MaPhanLoai__1273C1CD">
+      <End Role="PhanLoaiSach" EntitySet="PhanLoaiSaches" />
+      <End Role="Sach" EntitySet="Saches" />
+    </AssociationSet>
+    <EntitySet Name="Chart1" EntityType="DemoMVCModel.Chart1" />
+    <AssociationSet Name="FK__Chart1__Ma__04E4BC85" Association="DemoMVCModel.FK__Chart1__Ma__04E4BC85">
+      <End Role="PhanLoaiSach" EntitySet="PhanLoaiSaches" />
+      <End Role="Chart1" EntitySet="Chart1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Chart1__Ma__17036CC0" Association="DemoMVCModel.FK__Chart1__Ma__17036CC0">
+      <End Role="PhanLoaiSach" EntitySet="PhanLoaiSaches" />
+      <End Role="Chart1" EntitySet="Chart1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Chart1__Ma__7D439ABD" Association="DemoMVCModel.FK__Chart1__Ma__7D439ABD">
+      <End Role="PhanLoaiSach" EntitySet="PhanLoaiSaches" />
+      <End Role="Chart1" EntitySet="Chart1" />
+    </AssociationSet>
+    <EntitySet Name="Users" EntityType="DemoMVCModel.User" />
+    <EntitySet Name="UsersGroups" EntityType="DemoMVCModel.UsersGroup" />
+    <AssociationSet Name="FK__Users__UserGroup__2FCF1A8A" Association="DemoMVCModel.FK__Users__UserGroup__2FCF1A8A">
+      <End Role="UsersGroup" EntitySet="UsersGroups" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Chart1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Ma" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SL" Type="Int32" />
+    <NavigationProperty Name="PhanLoaiSach" Relationship="DemoMVCModel.FK__Chart1__Ma__04E4BC85" FromRole="Chart1" ToRole="PhanLoaiSach" />
+    <NavigationProperty Name="PhanLoaiSach1" Relationship="DemoMVCModel.FK__Chart1__Ma__17036CC0" FromRole="Chart1" ToRole="PhanLoaiSach" />
+    <NavigationProperty Name="PhanLoaiSach2" Relationship="DemoMVCModel.FK__Chart1__Ma__7D439ABD" FromRole="Chart1" ToRole="PhanLoaiSach" />
+  </EntityType>
+  <Association Name="FK__Chart1__Ma__04E4BC85">
+    <End Type="DemoMVCModel.PhanLoaiSach" Role="PhanLoaiSach" Multiplicity="1" />
+    <End Type="DemoMVCModel.Chart1" Role="Chart1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoaiSach">
+        <PropertyRef Name="Ma" />
+      </Principal>
+      <Dependent Role="Chart1">
+        <PropertyRef Name="Ma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Chart1__Ma__17036CC0">
+    <End Type="DemoMVCModel.PhanLoaiSach" Role="PhanLoaiSach" Multiplicity="1" />
+    <End Type="DemoMVCModel.Chart1" Role="Chart1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoaiSach">
+        <PropertyRef Name="Ma" />
+      </Principal>
+      <Dependent Role="Chart1">
+        <PropertyRef Name="Ma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Chart1__Ma__7D439ABD">
+    <End Type="DemoMVCModel.PhanLoaiSach" Role="PhanLoaiSach" Multiplicity="1" />
+    <End Type="DemoMVCModel.Chart1" Role="Chart1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoaiSach">
+        <PropertyRef Name="Ma" />
+      </Principal>
+      <Dependent Role="Chart1">
+        <PropertyRef Name="Ma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Access" Type="Int32" />
+    <Property Name="Statuss" Type="Boolean" />
+    <Property Name="passwordd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsHost" Type="Boolean" />
+    <Property Name="UserGroupID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GroupPermissions" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="UsersGroup" Relationship="DemoMVCModel.FK__Users__UserGroup__2FCF1A8A" FromRole="User" ToRole="UsersGroup" />
+  </EntityType>
+  <EntityType Name="UsersGroup">
+    <Key>
+      <PropertyRef Name="UniqueID" />
+    </Key>
+    <Property Name="UniqueID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GroupPermissions" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="IsHost" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="DemoMVCModel.FK__Users__UserGroup__2FCF1A8A" FromRole="UsersGroup" ToRole="User" />
+  </EntityType>
+  <Association Name="FK__Users__UserGroup__2FCF1A8A">
+    <End Type="DemoMVCModel.UsersGroup" Role="UsersGroup" Multiplicity="0..1" />
+    <End Type="DemoMVCModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsersGroup">
+        <PropertyRef Name="UniqueID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

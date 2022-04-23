@@ -1,0 +1,73 @@
+﻿@model WebAppDemo.Models.PhanLoaiSach
+
+@{
+	ViewBag.Title = "DeletePhanLoai";
+}
+
+
+<h4>Xoas</h4>
+<hr />
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken(
+   )
+	<div style="width:100%;margin-left:27%">
+		<dl class="dl-horizontal">
+			<dt>
+				@Html.DisplayNameFor(model => model.Ma)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Ma)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.TenPhanLoai)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.TenPhanLoai)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.DaXoa)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.DaXoa)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NgayTao)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NgayTao)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NguoiTao)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NguoiTao)
+			</dd>
+
+
+
+
+
+
+
+		</dl>
+		<div class="form-actions no-color" style="margin-left:123px">
+			<button type="submit" style="height:20px;width:80px;font-size:10px;" class="btn btn-danger"><p style="font-size:15px;margin-top:-7px">Delete</p></button>
+			<br />
+
+		</div>
+	</div>
+
+
+
+}
+@Html.ActionLink("Quay lại", "PhanLoai")

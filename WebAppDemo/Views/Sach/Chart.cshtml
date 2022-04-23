@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebAppDemo.Models.Chart1>
+
+@{
+	ViewBag.Title = "Chart";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 style=" font-style: italic;margin:20px 25% 0 25%;">Biểu đồ sách</h4>
+<div class="col-lg-6" style="margin:20px auto">
+	<div class="card mb-4">
+		<div class="card-header">
+			<i class="fas fa-chart-pie me-1"></i>
+			Pie Chart
+		</div>
+		<div class="card-body"><canvas id="myChart" style="width:100%;max-width:600px"></canvas></div>
+		<div class="card-footer small text-muted">Cập nhật vào lúc @DateTime.Now</div>
+	</div>
+</div>
+<a style="font-size:20px" href='javascript:history.go(-1)'>Quay lại</a>
+
+@{
+	var i = Model.ToArray().Length;
+	int o = 0;
+	string[] MaPl = new string[i];
+	int[] SL = new int[i];
+	foreach (var item in Model)
+	{
+		MaPl[o] = item.Ma;
+		SL[o] = item.SL;
+		o++;
+	}
+}
+<script>
+
+		var xValues = @Html.Raw(Json.Encode(MaPl));
+		var yValues = @Html.Raw(Json.Encode(SL));
+		var barColors = [
+			"#b91d47",
+			"#00aba9",
+			"#2b5797",
+			"#e8c3b9",
+			"#1e7145"
+		];
+
+		new Chart("myChart", {
+			type: "doughnut",
+			data: {
+				labels: xValues,
+				datasets: [{
+					backgroundColor: barColors,
+					data: yValues
+				}]
+			},
+			options: {
+				title: {
+					display: true,
+					text: "Đồ thị phân loại sách"
+				}
+			}
+		});
+</script>
+
+
+

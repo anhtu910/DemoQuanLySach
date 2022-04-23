@@ -1,0 +1,74 @@
+﻿
+@{
+	ViewBag.Title = "Profile";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+	.PassChange {
+		display: none;
+	}
+	.open{
+		display:block;
+	}
+	.ChangeP:hover{
+		cursor:pointer;
+	}
+
+</style>
+<div style="max-width:800px;height:300px;border: 2px solid #706e68; border-radius: 8px;margin:0 auto; background-color:#f7f7f7; margin-top:50px;box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%) !important;">
+	<div class="col-xs-3" style="margin-left:22%; margin-top:15px" ;>
+		<div class="card" style="width: 10rem;">
+			<label style="margin:0 auto"> Avatar</label>
+			<img class="card-img-top" src="@Url.Content( Session["image"].ToString())" alt="Card image cap" style="height:14rem">
+			<div class="card-body" style="position:absolute; margin-left:250px;width:500px;display:inline-block;margin-top:15%;">
+				<label style="min-width:120px;">Full name</label>
+				<a  class="ChangeP" style="text-decoration:none">Edit</a>
+				<h5 class="card-title" ;>@Session["FullName"]</h5>
+				@using (Html.BeginForm("changeName",
+						"Auth",
+						FormMethod.Post,
+						new { enctype = "multipart/form-data" }))
+				{
+					@Html.AntiForgeryToken()
+			<div class="PassChange">
+				<input name="Sua" />
+				<button  type="submit">Change</button>
+				<button class="CancelP" type="submit">Cancel</button>
+			</div>
+				}
+				<label style="min-width:120px;">Password</label>
+				<a style="text-decoration:none" href="@Url.Action("changePassword","Auth")">Edit</a>
+				<div style="">
+					<label style="min-width:120px;">Quyền truy cập</label>
+					<h4 class="card-title">@Session["group"]</h4>
+				</div>
+
+
+			</div>
+		</div>
+
+	</div>
+</div>
+<script>
+	const CancelPass = document.querySelector('.CancelP')
+	console.log(CancelPass)
+	const Change = document.querySelector('.ChangeP')
+	console.log(Change)
+	const modal = document.querySelector('.PassChange')
+	console.log(modal)
+	function openbuyticket() {
+		modal.classList.add('open')
+	}
+	function closebuyticket() {
+		modal.classList.remove('open')
+	}
+
+	Change.addEventListener('click', openbuyticket)
+	
+	CancelPass.addEventListener('click', closebuyticket)
+	
+</script>
+
+
+
+

@@ -1,0 +1,103 @@
+﻿@model IEnumerable<WebAppDemo.Models.PhanLoaiSach>
+
+@{
+	ViewBag.Title = "PhanLoaiDaXoa";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+
+
+
+
+<main>
+	<div class="container-fluid px-4">
+		<h3 class="mt-4"> Danh sách phân loại đã xóa </h3>
+		<ol class="breadcrumb mb-4">
+			<li class="breadcrumb-item"><a href="@Url.Action("PhanLoai")">Trang chủ</a></li>
+			<li class="breadcrumb-item active">Danh Sách Phân Loại Đã Xóa</li>
+		</ol>
+		<div class="card mb-4">
+
+		</div>
+		<div class="card mb-4">
+			<div class="card-header">
+				<i class="fas fa-table me-1"></i>
+
+			</div>
+			<div class="card-body haha">
+				<table id="datatablesSimple">
+					<thead>
+						<tr>
+							<th>@Html.DisplayNameFor(amodel => amodel.First().Ma)</th>
+							<th>@Html.DisplayNameFor(amodel => amodel.First().TenPhanLoai)</th>
+
+							<th>@Html.DisplayNameFor(amodel => amodel.First().NgayTao)</th>
+							<th>@Html.DisplayNameFor(amodel => amodel.First().NguoiTao)</th>
+							<th>@Html.DisplayNameFor(amodel => amodel.First().NgaySua)</th>
+							<th>@Html.DisplayNameFor(amodel => amodel.First().NguoiSua)</th>
+							<th>@Html.DisplayNameFor(amodel => amodel.First().NgayXoa)</th>
+							<th>@Html.DisplayNameFor(amodel => amodel.First().NguoiXoa)</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<th>@Html.DisplayNameFor(amodel => amodel.First().Ma)</th>
+							<th>@Html.DisplayNameFor(amodel => amodel.First().TenPhanLoai)</th>
+
+							<th>@Html.DisplayNameFor(amodel => amodel.First().NgayTao)</th>
+							<th>@Html.DisplayNameFor(amodel => amodel.First().NguoiTao)</th>
+							<th>@Html.DisplayNameFor(amodel => amodel.First().NgaySua)</th>
+							<th>@Html.DisplayNameFor(amodel => amodel.First().NguoiSua)</th>
+							<th>@Html.DisplayNameFor(amodel => amodel.First().NgayXoa)</th>
+							<th>@Html.DisplayNameFor(amodel => amodel.First().NguoiXoa)</th>
+						</tr>
+					</tfoot>
+					<tbody>
+						@foreach (var item in Model)
+
+						{
+							<tr>
+								<td>
+									@Html.DisplayFor(modelItem => item.Ma)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.TenPhanLoai)
+								</td>
+
+								<td>
+									@Html.DisplayFor(modelItem => item.NgayTao)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.NguoiTao)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.NgaySua)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.NguoiSua)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.NgayXoa)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.NguoiXoa)
+								</td>
+								<td>
+									<button type="button" class="btn btn-light"> @Html.ActionLink("Restore", "RestorePhanLoai", new { ma = item.Ma }) </button>
+									
+								</td>
+							</tr>
+						}
+
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</main>
+<div>
+	@Html.ActionLink("Quay lại", "PhanLoai")
+</div>

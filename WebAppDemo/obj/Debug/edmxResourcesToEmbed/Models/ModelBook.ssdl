@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DemoMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Chart1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Ma" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SL" Type="int" />
+  </EntityType>
+  <EntityType Name="PhanLoaiSach">
+    <Key>
+      <PropertyRef Name="Ma" />
+    </Key>
+    <Property Name="Ma" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenPhanLoai" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="DaXoa" Type="bit" Nullable="false" />
+    <Property Name="NgayTao" Type="datetime" Nullable="false" />
+    <Property Name="NguoiTao" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NgaySua" Type="datetime" />
+    <Property Name="NguoiSua" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayXoa" Type="datetime" />
+    <Property Name="NguoiXoa" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sach">
+    <Key>
+      <PropertyRef Name="Ma" />
+    </Key>
+    <Property Name="Ma" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaPhanLoai" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="HinhBia" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="TomTat" Type="ntext" Nullable="false" />
+    <Property Name="Link" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="NgayXuatBan" Type="datetime" Nullable="false" />
+    <Property Name="NhaXuatBan" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TenTacGia" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="DaXoa" Type="bit" Nullable="false" />
+    <Property Name="NgayTao" Type="datetime" Nullable="false" />
+    <Property Name="NguoiTao" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NgaySua" Type="datetime" />
+    <Property Name="NguoiSua" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayXoa" Type="datetime" />
+    <Property Name="NguoiXoa" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Access" Type="int" />
+    <Property Name="Statuss" Type="bit" />
+    <Property Name="passwordd" Type="varchar" MaxLength="50" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsHost" Type="bit" />
+    <Property Name="UserGroupID" Type="varchar" MaxLength="50" />
+    <Property Name="GroupPermissions" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="UsersGroup">
+    <Key>
+      <PropertyRef Name="UniqueID" />
+    </Key>
+    <Property Name="UniqueID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GroupPermissions" Type="varchar" MaxLength="1000" />
+    <Property Name="IsHost" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Chart1__Ma__04E4BC85">
+    <End Role="PhanLoaiSach" Type="Self.PhanLoaiSach" Multiplicity="1" />
+    <End Role="Chart1" Type="Self.Chart1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoaiSach">
+        <PropertyRef Name="Ma" />
+      </Principal>
+      <Dependent Role="Chart1">
+        <PropertyRef Name="Ma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Chart1__Ma__17036CC0">
+    <End Role="PhanLoaiSach" Type="Self.PhanLoaiSach" Multiplicity="1" />
+    <End Role="Chart1" Type="Self.Chart1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoaiSach">
+        <PropertyRef Name="Ma" />
+      </Principal>
+      <Dependent Role="Chart1">
+        <PropertyRef Name="Ma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Chart1__Ma__7D439ABD">
+    <End Role="PhanLoaiSach" Type="Self.PhanLoaiSach" Multiplicity="1" />
+    <End Role="Chart1" Type="Self.Chart1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoaiSach">
+        <PropertyRef Name="Ma" />
+      </Principal>
+      <Dependent Role="Chart1">
+        <PropertyRef Name="Ma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sach__MaPhanLoai__05D8E0BE">
+    <End Role="PhanLoaiSach" Type="Self.PhanLoaiSach" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoaiSach">
+        <PropertyRef Name="Ma" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="MaPhanLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sach__MaPhanLoai__1273C1CD">
+    <End Role="PhanLoaiSach" Type="Self.PhanLoaiSach" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoaiSach">
+        <PropertyRef Name="Ma" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="MaPhanLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sach__MaPhanLoai__17F790F9">
+    <End Role="PhanLoaiSach" Type="Self.PhanLoaiSach" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoaiSach">
+        <PropertyRef Name="Ma" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="MaPhanLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__UserGroup__2FCF1A8A">
+    <End Role="UsersGroup" Type="Self.UsersGroup" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsersGroup">
+        <PropertyRef Name="UniqueID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="UserGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DemoMVCModelStoreContainer">
+    <EntitySet Name="Chart1" EntityType="Self.Chart1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanLoaiSach" EntityType="Self.PhanLoaiSach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sach" EntityType="Self.Sach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersGroup" EntityType="Self.UsersGroup" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Chart1__Ma__04E4BC85" Association="Self.FK__Chart1__Ma__04E4BC85">
+      <End Role="PhanLoaiSach" EntitySet="PhanLoaiSach" />
+      <End Role="Chart1" EntitySet="Chart1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Chart1__Ma__17036CC0" Association="Self.FK__Chart1__Ma__17036CC0">
+      <End Role="PhanLoaiSach" EntitySet="PhanLoaiSach" />
+      <End Role="Chart1" EntitySet="Chart1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Chart1__Ma__7D439ABD" Association="Self.FK__Chart1__Ma__7D439ABD">
+      <End Role="PhanLoaiSach" EntitySet="PhanLoaiSach" />
+      <End Role="Chart1" EntitySet="Chart1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sach__MaPhanLoai__05D8E0BE" Association="Self.FK__Sach__MaPhanLoai__05D8E0BE">
+      <End Role="PhanLoaiSach" EntitySet="PhanLoaiSach" />
+      <End Role="Sach" EntitySet="Sach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sach__MaPhanLoai__1273C1CD" Association="Self.FK__Sach__MaPhanLoai__1273C1CD">
+      <End Role="PhanLoaiSach" EntitySet="PhanLoaiSach" />
+      <End Role="Sach" EntitySet="Sach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sach__MaPhanLoai__17F790F9" Association="Self.FK__Sach__MaPhanLoai__17F790F9">
+      <End Role="PhanLoaiSach" EntitySet="PhanLoaiSach" />
+      <End Role="Sach" EntitySet="Sach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__UserGroup__2FCF1A8A" Association="Self.FK__Users__UserGroup__2FCF1A8A">
+      <End Role="UsersGroup" EntitySet="UsersGroup" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

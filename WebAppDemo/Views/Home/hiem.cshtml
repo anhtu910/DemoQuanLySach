@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebAppDemo.Models.Sach>
+
+@{
+	ViewBag.Title = "hiem";
+}
+
+<h3 style="margin-bottom:15px">Sách đã xóa</h3>
+<div class="row">
+	@foreach (var item in Model)
+	{
+		<div class="col-xs-3" style="margin-top:15px">
+	<div class="card" style="width: 14rem;">
+		<img class="card-img-top" src="@Url.Content(item.HinhBia)" alt="Card image cap" style="height:20rem">
+		<div class="card-body">
+			<h4 class="card-title">@(item.Ten)</h4>
+			<p class="card-text">@(item.TomTat)</p>
+			<a href="@Url.Action("Xem","Sach", new { ma = item.Ma })" class="btn btn-primary">Restore</a>
+		</div>
+	</div>
+
+</div>
+	}
+
+</div>
+<div>
+	<h4 style="margin-top:10px;">@Html.ActionLink("Quay lại", "Index", "Home")</h4>
+</div>

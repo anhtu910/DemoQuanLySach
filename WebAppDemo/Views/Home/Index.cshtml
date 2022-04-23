@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebAppDemo.Models.Sach>
+
+@{
+	ViewBag.Title = "Index";
+}
+
+
+
+
+
+
+<p>
+	@Html.ActionLink("Thêm sách mới", "CreateSach", "Sach")
+</p>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+	<form class="d-flex">
+		<input class="form-control me-2 " style="width:300px" type="text placeholder="Search" aria-label="Search" id="SearchString" name="SearchString">
+		<input type="date" id="SearchDate" name="SearchDate" />
+		<button class="btn btn-outline-success anhtu" type="submit" value="Search">Tìm kiếm</button>
+
+		<button class="btn btn-outline-success anhtu1">@Html.ActionLink("Bỏ tìm kiếm", "Index", "Home")</button>
+	</form>
+
+}
+
+<div class="row">
+	@foreach (var item in Model)
+	{<div class="col-xs-3" style="margin-top:15px">
+			<div class="card" style="width: 14rem;">
+				<img class="card-img-top" src="@Url.Content(item.HinhBia)" alt="Card image cap" style="height:20rem">
+				<div class="card-body">
+					<h4 class="card-title">@(item.Ten)</h4>
+					<p style="min-height:40px" class="card-text">@(item.TomTat)</p>
+					<a href="@Url.Action("Xem1","Home", new { ma = item.Ma })" class="btn btn-primary">Xem</a>
+				</div>
+			</div>
+
+		</div>
+	}
+</div>
+<div>
+	<h4 style="margin-top:10px;">@Html.ActionLink("Quay lại", "PhanLoai", "Sach")</h4>
+</div>

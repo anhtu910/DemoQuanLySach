@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dd5edfa2052344a9a9edf5747225f20e" Name="Diagram1">
+        <EntityTypeShape EntityType="DemoMVCModel.PhanLoaiSach" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoMVCModel.Sach" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="DemoMVCModel.FK__Sach__MaPhanLoai__1273C1CD" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DemoMVCModel.Chart1" Width="1.5" PointX="3" PointY="6.375" />
+        <AssociationConnector Association="DemoMVCModel.FK__Chart1__Ma__04E4BC85" />
+        <AssociationConnector Association="DemoMVCModel.FK__Chart1__Ma__17036CC0" />
+        <AssociationConnector Association="DemoMVCModel.FK__Chart1__Ma__7D439ABD" />
+        <EntityTypeShape EntityType="DemoMVCModel.User" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DemoMVCModel.UsersGroup" Width="1.5" PointX="3.125" PointY="9.375" />
+        <AssociationConnector Association="DemoMVCModel.FK__Users__UserGroup__2FCF1A8A" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DemoMVCModel1StoreContainer" CdmEntityContainer="DemoMVCEntities4">
+    <EntitySetMapping Name="chart1">
+      <EntityTypeMapping TypeName="DemoMVCModel1.chart1">
+        <MappingFragment StoreEntitySet="chart1">
+          <ScalarProperty Name="ma" ColumnName="ma" />
+          <ScalarProperty Name="SL" ColumnName="SL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

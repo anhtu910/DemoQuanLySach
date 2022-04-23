@@ -1,0 +1,143 @@
+﻿@model WebAppDemo.Models.Sach
+
+@{
+	ViewBag.Title = "Delete";
+}
+
+<div>
+	<hr />
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+		<dl class="dl-horizontal">
+			<dt>
+				@Html.DisplayNameFor(model => model.Ten)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Ten)
+			</dd>
+
+			<dt style="border-radius: 8px;position:absolute;margin-left:25%;">
+
+			</dt>
+
+			<dd>
+				<img src="@Url.Content(Model.HinhBia)" alt="Image" height="350" width="285" style="border-radius: 8px;position:absolute;margin-left:25%;" />
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.TomTat)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.TomTat)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.Link)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Link)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NgayXuatBan)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NgayXuatBan)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NhaXuatBan)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NhaXuatBan)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.TenTacGia)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.TenTacGia)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.DaXoa)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.DaXoa)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NgayTao)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NgayTao)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NguoiTao)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NguoiTao)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NgaySua)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NgaySua)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NguoiSua)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NguoiSua)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NgayXoa)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NgayXoa)
+			</dd>
+			<dt>
+				@Html.DisplayNameFor(model => model.PhanLoaiSach.TenPhanLoai)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.PhanLoaiSach.TenPhanLoai)
+			</dd>
+
+			<div class="form-group" style="margin-left:80px;margin-top:10px;">
+				@Html.LabelFor(model => model.NguoiXoa, htmlAttributes: new { @class = "control-label col-md-2",@style= "font-weight: bold;" })
+				
+					@Html.EditorFor(model => model.NguoiXoa, new { htmlAttributes = new { @class = "input_anhtu" } })
+					@Html.ValidationMessageFor(model => model.NguoiXoa, "", new { @class = "text-danger" })
+				
+			</div>
+
+
+
+		</dl>
+
+		<div class="form-actions no-color">
+			<input type="submit" value="Delete" class="btn btn-default" style="margin-top:30px;margin-left:10%;" />
+
+		</div>
+	}
+	<a style="font-size:20px"href='javascript:history.go(-1)'>Quay lại</a>
+	
+</div>

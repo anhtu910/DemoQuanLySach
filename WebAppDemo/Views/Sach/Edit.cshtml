@@ -1,0 +1,106 @@
+﻿@model WebAppDemo.Models.Sach
+
+@{
+	ViewBag.Title = "Edit";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h4 style="margin:30px auto 30px 25%;">Cập nhật </h4>
+
+
+@using (Html.BeginForm("Edit",
+	  "Sach",
+	  FormMethod.Post,
+	  new { enctype = "multipart/form-data" }))
+{
+	@Html.AntiForgeryToken()
+
+
+
+	<div class="form-horizontal" style="background-color:#f8f9fa;">
+
+		<form style="margin-top:50px;">
+			<div class="form-row">
+				@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+				@Html.HiddenFor(model => model.Ma)
+				<div class="form-group col-md-6" style="margin:0 auto;margin-top:10px;">
+					@Html.LabelFor(model => model.MaPhanLoai)
+					@Html.DropDownList("MaPhanLoai", null, htmlAttributes: new { @class = "form-control" })
+
+				</div>
+				<div class="form-group col-md-6" style="margin:0 auto;margin-top:10px;">
+					@Html.LabelFor(model => model.Ten)
+
+					@Html.EditorFor(model => model.Ten, new { htmlAttributes = new { @class = "form-control" } })
+				</div>
+
+				<div class="input-group">
+					<div class="custom-file" style="margin:0 25%;margin-top:10px;">
+						@Html.LabelFor(model => model.HinhBia, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.HinhBia, new { htmlAttributes = new { @class = "form-control" } })
+						<input type="file" name="file" id="file" />
+
+					</div>
+
+				</div>
+				<div class="form-group col-md-6" style="margin:0 auto;margin-top:10px;">
+					@Html.LabelFor(model => model.TomTat)
+
+					@Html.EditorFor(model => model.TomTat, new { htmlAttributes = new { @class = "form-control" } })
+				</div>
+				<div class="form-group col-md-6" style="margin:0 auto;margin-top:10px;">
+					@Html.LabelFor(model => model.Link)
+
+					@Html.EditorFor(model => model.Link, new { htmlAttributes = new { @class = "form-control" } })
+				</div>
+				<div class="form-group col-md-6" style="margin:0 auto;margin-top:10px;">
+					@Html.LabelFor(model => model.NgayXuatBan)
+
+					@Html.EditorFor(model => model.NgayXuatBan, new { htmlAttributes = new { @class = "form-control" } })
+				</div>
+				<div class="form-group col-md-6" style="margin:0 auto;margin-top:10px;">
+					@Html.LabelFor(model => model.NhaXuatBan)
+
+					@Html.EditorFor(model => model.NhaXuatBan, new { htmlAttributes = new { @class = "form-control" } })
+				</div>
+				<div class="form-group col-md-6" style="margin:0 auto;margin-top:10px;">
+					@Html.LabelFor(model => model.TenTacGia)
+
+					@Html.EditorFor(model => model.TenTacGia, new { htmlAttributes = new { @class = "form-control" } })
+				</div>
+				<div class="form-group col-md-6" style="margin:0 auto;margin-top:10px;">
+					@Html.LabelFor(model => model.NgayTao)
+
+					@Html.EditorFor(model => model.NgayTao, new { htmlAttributes = new { @class = "form-control" } })
+				</div>
+				<div class="form-group col-md-6" style="margin:0 auto;margin-top:10px;">
+					@Html.LabelFor(model => model.NguoiTao)
+
+					@Html.EditorFor(model => model.NguoiTao, new { htmlAttributes = new { @class = "form-control" } })
+				</div>
+				<div class="form-group col-md-6" style="margin:0 auto;margin-top:10px;">
+					@Html.LabelFor(model => model.NguoiSua)
+
+					@Html.EditorFor(model => model.NguoiSua, new { htmlAttributes = new { @class = "form-control" } })
+				</div>
+				<div class="form-group col-md-6" style="margin:0 auto;margin-top:10px;">
+					@Html.LabelFor(model => model.NguoiSua)
+
+					@Html.EditorFor(model => model.NguoiSua, new { htmlAttributes = new { @class = "form-control" } })
+				</div>
+
+			</div>
+
+
+			<button type="submit" class="btn btn-primary" style="margin-left:25%;margin-top:30px;">Cập nhật</button>
+		</form>
+
+
+	</div>
+}
+
+<div>
+	<a href='javascript:history.go(-1)'>Quay lại</a>
+</div>
+

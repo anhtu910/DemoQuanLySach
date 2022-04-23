@@ -1,0 +1,41 @@
+﻿
+@model PagedList.IPagedList<WebAppDemo.Models.Sach>
+@using PagedList.Mvc;
+
+
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Sách</h2>
+
+
+
+
+
+<div class="row">
+	@foreach (var item in Model)
+	{
+		<div class="col-xs-3" style="margin-top:15px">
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" src="@Url.Content(item.HinhBia)" alt="Card image cap" style="height:20rem">
+				<div class="card-body">
+					<h5 class="card-title">@(item.Ten)</h5>
+					<p style="min-height:40px" class="card-text">@(item.TomTat)</p>
+					<a href="@Url.Action("Xem1","Home", new { ma = item.Ma })" class="btn btn-primary">Xem</a>
+				</div>
+			</div>
+
+		</div>
+	}
+
+</div>
+<br />
+
+	Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+	@Html.PagedListPager(Model, page => Url.Action("Index",
+		new { page, ma = Model[0].MaPhanLoai }))
+	<div>
+		@Html.ActionLink("Quay lại", "PhanLoai")
+	</div>

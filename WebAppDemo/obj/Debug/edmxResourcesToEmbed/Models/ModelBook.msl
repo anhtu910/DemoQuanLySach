@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DemoMVCModelStoreContainer" CdmEntityContainer="DemoMVCEntities1">
+    <EntitySetMapping Name="PhanLoaiSaches">
+      <EntityTypeMapping TypeName="DemoMVCModel.PhanLoaiSach">
+        <MappingFragment StoreEntitySet="PhanLoaiSach">
+          <ScalarProperty Name="Ma" ColumnName="Ma" />
+          <ScalarProperty Name="TenPhanLoai" ColumnName="TenPhanLoai" />
+          <ScalarProperty Name="DaXoa" ColumnName="DaXoa" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+          <ScalarProperty Name="NguoiTao" ColumnName="NguoiTao" />
+          <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
+          <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+          <ScalarProperty Name="NgayXoa" ColumnName="NgayXoa" />
+          <ScalarProperty Name="NguoiXoa" ColumnName="NguoiXoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Saches">
+      <EntityTypeMapping TypeName="DemoMVCModel.Sach">
+        <MappingFragment StoreEntitySet="Sach">
+          <ScalarProperty Name="Ma" ColumnName="Ma" />
+          <ScalarProperty Name="MaPhanLoai" ColumnName="MaPhanLoai" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="HinhBia" ColumnName="HinhBia" />
+          <ScalarProperty Name="TomTat" ColumnName="TomTat" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="NgayXuatBan" ColumnName="NgayXuatBan" />
+          <ScalarProperty Name="NhaXuatBan" ColumnName="NhaXuatBan" />
+          <ScalarProperty Name="TenTacGia" ColumnName="TenTacGia" />
+          <ScalarProperty Name="DaXoa" ColumnName="DaXoa" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+          <ScalarProperty Name="NguoiTao" ColumnName="NguoiTao" />
+          <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
+          <ScalarProperty Name="NguoiSua" ColumnName="NguoiSua" />
+          <ScalarProperty Name="NgayXoa" ColumnName="NgayXoa" />
+          <ScalarProperty Name="NguoiXoa" ColumnName="NguoiXoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chart1">
+      <EntityTypeMapping TypeName="DemoMVCModel.Chart1">
+        <MappingFragment StoreEntitySet="Chart1">
+          <ScalarProperty Name="SL" ColumnName="SL" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ma" ColumnName="Ma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DemoMVCModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="GroupPermissions" ColumnName="GroupPermissions" />
+          <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+          <ScalarProperty Name="IsHost" ColumnName="IsHost" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="passwordd" ColumnName="passwordd" />
+          <ScalarProperty Name="Statuss" ColumnName="Statuss" />
+          <ScalarProperty Name="Access" ColumnName="Access" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersGroups">
+      <EntityTypeMapping TypeName="DemoMVCModel.UsersGroup">
+        <MappingFragment StoreEntitySet="UsersGroup">
+          <ScalarProperty Name="IsHost" ColumnName="IsHost" />
+          <ScalarProperty Name="GroupPermissions" ColumnName="GroupPermissions" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

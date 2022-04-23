@@ -1,0 +1,150 @@
+﻿@model WebAppDemo.Models.Sach
+@{
+	ViewBag.Title = "Xem1";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+<div style="margin-top:20px">
+	<h4>Chi tiết</h4>
+	<hr />
+	<div style=" border: 2px solid #706e68; border-radius: 8px;">
+		<div style="text-align: left; position:absolute;margin-left:18.5%;margin-top:10px; ">
+	
+			<img src="@Url.Content(Model.HinhBia)" alt="Image" height="437px" width="324px" style="border-radius: 8px;" />
+		</div>
+		<dl class="dl-horizontal tada" style="margin-left:48%;margin-top:10px;">
+
+			<dt style="align-content:center;">
+				@Html.DisplayNameFor(model => model.Ten)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Ten)
+			</dd>
+			<dt>
+				@Html.DisplayNameFor(model => model.TomTat)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.TomTat)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.Link)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Link)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NgayXuatBan)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NgayXuatBan)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NhaXuatBan)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NhaXuatBan)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.TenTacGia)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.TenTacGia)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.DaXoa)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.DaXoa)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NgayTao)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NgayTao)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NguoiTao)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NguoiTao)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NgaySua)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NgaySua)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NguoiSua)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NguoiSua)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NgayXoa)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NgayXoa)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.NguoiXoa)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.NguoiXoa)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.PhanLoaiSach.TenPhanLoai)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.PhanLoaiSach.TenPhanLoai)
+			</dd>
+
+		</dl>
+	</div>
+</div>
+<div style="margin-top:50px;">
+	<p style="margin-left:44%;">
+		<button type="button" style="height:40px;width:80px;font-size:20px" class="btn btn-success"><a href="@Url.Action( "Edit", "Sach", new { id = Model.Ma })" >Sửa</a> </button>
+		<button type="button" style="height:40px;width:80px;font-size:20px" class="btn btn-danger"><a href="@Url.Action( "Delete", "Sach", new { id = Model.Ma })">Xóa</a> </button>
+
+	</p>
+</div>
+
+<p style="font-size:20px">
+
+
+	@Html.ActionLink("Quay lại", "Index", "Home")
+
+</p>
+
